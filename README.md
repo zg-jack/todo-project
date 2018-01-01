@@ -17,38 +17,40 @@ Assume you already have Docker and Maven installed.
 
 First, clone the project and build locally:
 
-~~
+```
 git clone https://github.com/yangzhares/mysql-spring-boot-todo.git
 cd mysql-spring-boot-todo
 mvn clean package docker:build
-~~
+```
 
-## Run MySQL Container:
+## Run MySQL Container
 
-~~
+```
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tododb -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -d mysql:5.6
-~~
+```
 
 Check the log to make sure the server is running OK:
-~~
+
+```
 docker logs mysql
-~~
+```
 
 ## Run Todo Container
 Run todo application in Docker container and link to `mysql`:
 
-~~
+```
 docker run -p 8080:8080 --name todo --link mysql -d zhanyang/todo-demo:1.0.0
-~~
+```
 
 You can check the log by
-~~
+
+```
 docker logs todo
-~~
+```
 
 Open http://localhost:8080 in browser and add and update tasks, you can verify the changes in the database through the MySQL console:
 
 1. `docker exec -ti mysql bash`
-2. `mysql -uuser -p`
+2. `mysql -uuser -ppass`
 3. After login Mysql console, `use tododb;`
 4. Verify tasks change status with `select category,IF(complete, 'true','false') complete,name from todo_item;`
