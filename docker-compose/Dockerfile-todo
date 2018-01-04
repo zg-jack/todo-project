@@ -1,0 +1,9 @@
+FROM java:8
+
+WORKDIR /app
+COPY TodoDemo.jar .
+#RUN useradd -ms /bin/bash admin && chown admin:admin TodoDemo.jar && bash -c 'touch TodoDemo.jar'
+RUN useradd -ms /bin/bash todo && chown todo:todo TodoDemo.jar && bash -c 'touch TodoDemo.jar'
+#USER admin
+USER todo
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","TodoDemo.jar"]
