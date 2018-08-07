@@ -19,6 +19,7 @@ First, clone the project and build locally:
 
 ```
 git clone https://github.com/zg-jack/todo-project.git/
+mvn clean package docker:build
 ```
 
 ## Run MySQL Container
