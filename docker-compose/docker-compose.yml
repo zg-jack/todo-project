@@ -5,7 +5,7 @@ services:
        context: .
        dockerfile: Dockerfile-todo
      #image: zhanyang/todo-demo:1.0.1
-     image: zhanyang/todo-demo:1.0.0
+     image: jack/todo-demo:1.0.0
      ports:
        - "8080:8080"
      depends_on:
@@ -24,7 +24,7 @@ services:
      build: 
        context: .
        dockerfile: Dockerfile-mysql
-     image: zhanyang/mysql:5.6
+     image: jack/mysql:5.6
      container_name: mysql
      networks: 
        - mynet1
