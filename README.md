@@ -18,9 +18,7 @@ Assume you already have Docker and Maven installed.
 First, clone the project and build locally:
 
 ```
-git clone https://github.com/yangzhares/mysql-spring-boot-todo.git
-cd mysql-spring-boot-todo
-mvn clean package docker:build
+git clone https://github.com/zg-jack/todo-project.git/
 ```
 
 ## Run MySQL Container
@@ -39,7 +37,7 @@ docker logs mysql
 Run todo application in Docker container and link to `mysql`:
 
 ```
-docker run -p 8080:8080 --name todo --link mysql -d zhanyang/todo-demo:1.0.0
+docker run -p 8080:8080 --name todo --link mysql -d jack/todo-demo:1.0.0
 ```
 
 You can check the log by
