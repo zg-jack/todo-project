@@ -4,7 +4,7 @@ services:
      build: 
        context: .
        dockerfile: Dockerfile-todo
-     #image: zhanyang/todo-demo:1.0.1
+     #image: jack/todo-demo:1.0.1
      image: jack/todo-demo:1.0.0
      ports:
        - "8080:8080"
